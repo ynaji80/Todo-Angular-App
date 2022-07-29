@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from "rxjs";
 import { Task } from "../../Task";
 import { TaskService } from "../../services/task.service";
+
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -15,6 +15,23 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((tasks) =>{
       this.tasks = tasks;
+    });
+  }
+
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task).subscribe(() => {
+      this.ngOnInit();
+    })
+  }
+
+  toggleDone(task: Task){
+    task.done = !task.done;
+    this.taskService.updateTaskDone(task).subscribe();
+  }
+
+  addTask (task: Task){
+    this.taskService.addTask(task).subscribe((task) => {
+      this.tasks.push(task);
     });
   }
 

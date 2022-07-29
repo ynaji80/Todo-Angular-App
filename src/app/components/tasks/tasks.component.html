@@ -1,5 +1,5 @@
-<div class="mt-4 h-50 overflow-scroll">
-    <app-task *ngFor="let task of tasks" [task]="task"></app-task>
-
+<app-add-task  (onAddTask)="addTask($event)"></app-add-task>
+<div class="mt-4 h-72 overflow-scroll">
+    <app-task *ngFor="let task of tasks" [task]="task" (deleteTask)="deleteTask(task)" (toggleDone)="toggleDone(task)" ></app-task>
 </div>
 
