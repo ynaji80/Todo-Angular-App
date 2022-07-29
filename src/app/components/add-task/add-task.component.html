@@ -1,0 +1,39 @@
+<form (ngSubmit)="onSubmit()" class="mt-4 flex items-center w-full space-x-10 " *ngIf="toggleForm">
+
+    <div class="flex flex-col h-40">
+        <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="text">
+                Task
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-700" id="text" type="text" placeholder="Add a Task" name="text" [(ngModel)]="text">
+            </div>
+          </div>
+          <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+              <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="day">
+                Day
+              </label>
+            </div>
+            <div class="md:w-2/3">
+              <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-700" id="day" type="text" placeholder="Add a Date" name="day" [(ngModel)]="day">
+            </div>
+        </div>
+    </div>
+    <div class="mt-2 flex flex-col space-y-10 h-40">
+        <div class="flex items-center ">
+            <label class=" block text-gray-500 font-bold">
+                <input class=" leading-tight" type="checkbox" name="done" [(ngModel)]="done">
+                <span class="ml-4 text-base">
+                Already Done?
+                </span>
+            </label>
+        </div>
+        <div >
+            <input class="shadow cursor-pointer bg-sky-700 hover:bg-sky-900 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit" value="Add Task">
+        </div>
+    </div>
+
+  </form>
